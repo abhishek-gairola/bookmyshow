@@ -19,8 +19,8 @@ public class TheatreController {
     @Autowired
     private TheatreService theatreService;
 
-    @PostMapping("/{cityId}")
-    public ResponseEntity<Theatre> createTheatre(@PathVariable UUID cityId, @RequestBody Theatre theatre) {
+    @PostMapping("/")
+    public ResponseEntity<Theatre> createTheatre(@RequestParam UUID cityId, @RequestBody Theatre theatre) {
         Theatre createdTheatre = theatreService.createTheatre(cityId, theatre);
         return new ResponseEntity<>(createdTheatre, HttpStatus.CREATED);
     }
